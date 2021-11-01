@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "617fcee004967bfee5adeca6"
+  },
+  "name": "Maine",
+  "capital city": "Augusta",
+  "total area (in square km)": 91646,
+  "population": 1344212
+},{
+  "_id": {
+    "$oid": "617fcfa904967bfee5adeca7"
+  },
+  "name": "American Samoa",
+  "capital city": "Pago Pago",
+  "total area (in square km)": 200,
+  "population": 46366
+},{
+  "_id": {
+    "$oid": "617fcfdd04967bfee5adeca8"
+  },
+  "name": "Utah",
+  "capital city": "Salt Lake City",
+  "total area (in square km)": 219887,
+  "population": 3271616
+},{
+  "_id": {
+    "$oid": "617fd00904967bfee5adeca9"
+  },
+  "name": "South Dakota",
+  "capital city": "Pierre",
+  "total area (in square km)": 199729,
+  "population": 886667
+},{
+  "_id": {
+    "$oid": "617fd03c04967bfee5adecaa"
+  },
+  "name": "Texas",
+  "capital city": "Austin",
+  "total area (in square km)": 695662,
+  "population": 29183290
+},{
+  "_id": {
+    "$oid": "617fd07004967bfee5adecab"
+  },
+  "name": "Florida",
+  "capital city": "Tallahassee",
+  "total area (in square km)": 170312,
+  "population": 21570527
+},{
+  "_id": {
+    "$oid": "617fd09f04967bfee5adecac"
+  },
+  "name": "Colorado",
+  "capital city": "Denver",
+  "total area (in square km)": 269837,
+  "population": 5773714
+},{
+  "_id": {
+    "$oid": "617fd13104967bfee5adecb5"
+  },
+  "name": "California",
+  "capital city": "Sacramento",
+  "total area (in square km)": 423970,
+  "population": 39538223
+}]
