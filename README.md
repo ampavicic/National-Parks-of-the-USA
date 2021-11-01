@@ -1,6 +1,6 @@
 # National Parks of the USA Data SET
 ### Details
-This is the data repository for **National Parks of the USA**, _version 1.1_, operated by Ana Marija Pavičić, a student of University of Zagreb, [Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/). The repository is written in **English** and created on **November 1, 2021**, last update: November 1, 2021.
+This is the data repository for **National Parks of the USA**, _version 1.0_, operated by Ana Marija Pavičić, a student of University of Zagreb, [Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/). The repository is written in **English** and created on **November 1, 2021**, last update: November 1, 2021.
 
 
 ### Description
