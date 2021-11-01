@@ -1,3 +1,4 @@
+
 # National Parks of the USA Data SET
 ### Details
 This is the data repository for **National Parks of the USA**, _version 1.0_, operated by Ana Marija Pavičić, a student of the University of Zagreb, [Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/). The repository is written in **English** and created on **November 1, 2021**, last update: November 1, 2021.
@@ -9,16 +10,22 @@ This repository contains information about some of the National Parks of the USA
 
  - the name of the National Park
  - location (State) of the National Park
- - date established as park
+ - date established as a park
  - area of the National Park in square km
  - number of recreational visitors in 2020
- - url of the website
+ - URL of the website
  - fees for pedestrian
  - climate in the park
  - location where WiFi i available, if it is available
  - if cellular access is available, and where
  - average temperature messured by (average low temperature + average high temperature ) / 2
  - url of the represantative picture of the park
+
+In addition, this repository contains information about the location of the park, such as:
+
+ - capital city
+ - total area (in square km)
+ - population, according to Wikipedia
  
 
 ### Formats
