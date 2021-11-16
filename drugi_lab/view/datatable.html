@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="skripta.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" type="text/css" href="pages.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/v/dt/b-1.6.5/b-html5-1.6.5/datatables.min.css" />
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/b-1.6.5/b-html5-1.6.5/datatables.min.js"></script>
+  <title>National Parks in the USA</title>
+</head>
+
+<body>
+  <div id="content">
+    <img src="usa.jpg" class="img2" />
+  </div>
+  <a href="\"><button class="previous">Back to homepage</button> </a>
+  <h1 class="a">National Parks in the USA Datatable</h1>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <table id="parks-table" class="display nowrap" style="width:100%">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>location_name</th>
+        <th>location_area</th>
+        <th>location_population</th>
+        <th>location_capital_city</th>
+        <th>date</th>
+        <th>area</th>
+        <th>visitors</th>
+        <th>website</th>
+        <th>fees</th>
+        <th>climate</th>
+        <th>WiFi_access</th>
+        <th>cellular_access</th>
+        <th>average_temperature</th>
+        <th>picture</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>name</th>
+        <th>location_name</th>
+        <th>location_area</th>
+        <th>location_population</th>
+        <th>location_capital_city</th>
+        <th>date</th>
+        <th>area</th>
+        <th>visitors</th>
+        <th>website</th>
+        <th>fees</th>
+        <th>climate</th>
+        <th>WiFi_access</th>
+        <th>cellular_access</th>
+        <th>average_temperature</th>
+        <th>picture</th>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+<script>$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+
+</html>

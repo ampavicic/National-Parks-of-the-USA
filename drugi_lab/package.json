@@ -1,0 +1,34 @@
+{
+  "name": "zadatak_posao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "nodemonConfig": {
+    "ignore": [
+      "*.json",
+      "*.csv"
+    ]
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "datatables.net": "^1.11.3",
+    "datatables.net-dt": "^1.11.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "json2csv": "^5.0.6",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.0.8",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
+}

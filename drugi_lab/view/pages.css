@@ -1,0 +1,101 @@
+.button {
+   display: inline-block;
+   padding: 15px 25px;
+   font-size: 24px;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: none;
+   outline: none;
+   color: #fff;
+   background-color: #4CAF50;
+   border: none;
+   border-radius: 15px;
+   box-shadow: 0 9px #999;
+   margin: 10px;
+}
+
+.button:hover {
+   background-color: #3e8e41
+}
+
+.button:active {
+   background-color: #3e8e41;
+   box-shadow: 0 5px #666;
+   transform: translateY(4px);
+}
+
+.button1 {
+   background-color: white;
+   color: black;
+   border: 2px solid #4CAF50;
+   /* Green */
+}
+
+.previous {
+   background-color: #56baf4;
+   color: black;
+}
+
+/* Blue */
+
+.btn {
+   background-color: #56baf4;
+   /* Green */
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   -webkit-transition-duration: 0.4s;
+   /* Safari */
+   transition-duration: 0.4s;
+}
+
+.btn2:hover {
+   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img1 {
+   width: 600px;
+   height: auto;
+   position: absolute;
+   right: 0;
+   top: 0;
+}
+
+.img2 {
+   width: auto;
+   height: 350px;
+   position: absolute;
+
+}
+
+#content {
+   position: relative;
+}
+
+#content img {
+   position: absolute;
+   top: 0px;
+   right: 0px;
+}
+
+.div {
+   position: absolute;
+   left: 0;
+   top: 150px;
+   background-color: white;
+   width: 80%;
+}
+
+.a {
+   font-family: "Impact", Charcoal, sans-serif;
+}
+
+b {
+   font-family: "Tahoma", Geneva, sans-serif;
+}

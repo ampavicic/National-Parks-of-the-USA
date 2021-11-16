@@ -1,361 +1,289 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://example.com/example.json",
-    "type": "array",
-    "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
-    "default": [],
-    "examples": [
-        [
-            {
-                "_id": {
-                    "$oid": "617f0e29a76ec2a3aca1f202"
-                },
-                "name": "Acadia",
-                "location": {
-                    "name": "Maine",
-                    "capital city": "Augusta",
-                    "total area (in square km)": 91646,
-                    "population": 1344212
-                },
-                "date established as park": {
-                    "$date": {
-                        "$numberLong": "-1607299200000"
-                    }
-                },
-                "area (in square km)": 198.6,
-                "recreation visitors": 2669034,
-                "website": "https://www.nps.gov/acad/index.htm",
-                "fees (in $)": 15,
-                "climate": "maritime",
-                "WiFi access": "none",
-                "cellular access": "very limited",
-                "average temperature (°F)": 44.5,
-                "picture": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bass_Harbor_Head_Light_Station_2016.jpg"
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://or.fer.unizg.hr/orParks.json",
+  "type": "array",
+  "title": "National parks in USA",
+  "description": "Data set with some of the national parks in USA",
+  "default": [],
+  "examples": [
+    [
+      {
+        "_id": "617f0e29a76ec2a3aca1f202",
+        "name": "Acadia",
+        "location": {
+          "name": "Maine",
+          "capital_city": "Augusta",
+          "population": 1344212,
+          "area": 91646
+        },
+        "date": "1919-01-26T00:00:00.000Z",
+        "area": 198.6,
+        "visitors": 2669034,
+        "website": "https://www.nps.gov/acad/index.htm",
+        "fees": 15,
+        "climate": "maritime",
+        "WiFi_access": "none",
+        "cellular_access": "very limited",
+        "average_temperature": 44.5,
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bass_Harbor_Head_Light_Station_2016.jpg"
+      },
+      {
+        "_id": "617f12bca76ec2a3aca1f207",
+        "name": "American Samoa",
+        "location": {
+          "name": "American Samoa",
+          "capital_city": "Pago Pago",
+          "population": 46366,
+          "area": 200
+        },
+        "date": "1988-10-31T00:00:00.000Z",
+        "area": 33.4,
+        "visitors": 4819,
+        "website": "https://www.nps.gov/npsa/index.htm",
+        "fees": 0,
+        "climate": "tropical",
+        "WiFi_access": "none",
+        "cellular_access": "generally good",
+        "average_temperature": 86,
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ofu_Beach_American_Samoa_US_National_Park_Service.jpg"
+      }
+    ]
+  ],
+  "additionalItems": true,
+  "items": {
+    "$id": "#/items",
+    "anyOf": [
+      {
+        "$id": "#/items/anyOf/0",
+        "type": "object",
+        "title": "A form of the object 'parks'",
+        "description": "Information about a the national parks in USA WorldCup.",
+        "default": {},
+        "examples": [
+          {
+            "_id": "617f0e29a76ec2a3aca1f202",
+            "name": "Acadia",
+            "location": {
+              "name": "Maine",
+              "capital_city": "Augusta",
+              "population": 1344212,
+              "area": 91646
             },
-            {
-                "_id": {
-                    "$oid": "617f12bca76ec2a3aca1f207"
-                },
-                "name": "American Samoa",
-                "location": {
-                    "name": "American Samoa",
-                    "capital city": "Pago Pago",
-                    "total area (in square km)": 200,
-                    "population": 46366
-                },
-                "date established as park": {
-                    "$date": "1988-10-31T00:00:00Z"
-                },
-                "area (in square km)": 33.4,
-                "recreation visitors": 4819,
-                "website": "https://www.nps.gov/npsa/index.htm",
-                "fees (in $)": 0,
-                "climate": "tropical",
-                "WiFi access": "none",
-                "cellular access": "generally good",
-                "average temperature (°F)": 86,
-                "picture": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ofu_Beach_American_Samoa_US_National_Park_Service.jpg"
-            }
-        ]
-    ],
-    "additionalItems": true,
-    "items": {
-        "$id": "#/items",
-        "anyOf": [
-            {
-                "$id": "#/items/anyOf/0",
-                "type": "object",
-                "title": "The first anyOf schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": {},
+            "date": "1919-01-26T00:00:00.000Z",
+            "area": 198.6,
+            "visitors": 2669034,
+            "website": "https://www.nps.gov/acad/index.htm",
+            "fees": 15,
+            "climate": "maritime",
+            "WiFi_access": "none",
+            "cellular_access": "very limited",
+            "average_temperature": 44.5,
+            "picture": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bass_Harbor_Head_Light_Station_2016.jpg"
+          }
+        ],
+        "required": [
+          "_id",
+          "name",
+          "location",
+          "date",
+          "area",
+          "visitors",
+          "website",
+          "fees",
+          "climate",
+          "WiFi_access",
+          "cellular_access",
+          "average_temperature",
+          "picture"
+        ],
+        "properties": {
+          "_id": {
+            "$id": "#/items/anyOf/0/properties/_id",
+            "type": "string",
+            "title": "The _id of a park",
+            "description": "An id of a particual park",
+            "default": "",
+            "examples": [
+              "617f0e29a76ec2a3aca1f202"
+            ]
+          },
+          "name": {
+            "$id": "#/items/anyOf/0/properties/name",
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the National Park",
+            "default": "",
+            "examples": [
+              "Acadia"
+            ]
+          },
+          "location": {
+            "$id": "#/items/anyOf/0/properties/location",
+            "type": "object",
+            "title": "Location",
+            "description": "Location (State) of the National Park and some information about the location",
+            "default": {},
+            "examples": [
+              {
+                "name": "Maine",
+                "capital_city": "Augusta",
+                "population": 1344212,
+                "area": 91646
+              }
+            ],
+            "required": [
+              "name",
+              "capital_city",
+              "population",
+              "area"
+            ],
+            "properties": {
+              "name": {
+                "$id": "#/items/anyOf/0/properties/location/properties/name",
+                "type": "string",
+                "title": "Location_name",
+                "description": "The name of th location",
+                "default": "",
                 "examples": [
-                    {
-                        "_id": {
-                            "$oid": "617f0e29a76ec2a3aca1f202"
-                        },
-                        "name": "Acadia",
-                        "location": {
-                            "name": "Maine",
-                            "capital city": "Augusta",
-                            "total area (in square km)": 91646,
-                            "population": 1344212
-                        },
-                        "date established as park": {
-                            "$date": {
-                                "$numberLong": "-1607299200000"
-                            }
-                        },
-                        "area (in square km)": 198.6,
-                        "recreation visitors": 2669034,
-                        "website": "https://www.nps.gov/acad/index.htm",
-                        "fees (in $)": 15,
-                        "climate": "maritime",
-                        "WiFi access": "none",
-                        "cellular access": "very limited",
-                        "average temperature (°F)": 44.5,
-                        "picture": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bass_Harbor_Head_Light_Station_2016.jpg"
-                    }
-                ],
-                "required": [
-                    "_id",
-                    "name",
-                    "location",
-                    "date established as park",
-                    "area (in square km)",
-                    "recreation visitors",
-                    "website",
-                    "fees (in $)",
-                    "climate",
-                    "WiFi access",
-                    "cellular access",
-                    "average temperature (°F)",
-                    "picture"
-                ],
-                "properties": {
-                    "_id": {
-                        "$id": "#/items/anyOf/0/properties/_id",
-                        "type": "object",
-                        "title": "The _id schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": {},
-                        "examples": [
-                            {
-                                "$oid": "617f0e29a76ec2a3aca1f202"
-                            }
-                        ],
-                        "required": [
-                            "$oid"
-                        ],
-                        "properties": {
-                            "$oid": {
-                                "$id": "#/items/anyOf/0/properties/_id/properties/%24oid",
-                                "type": "string",
-                                "title": "The $oid schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": "",
-                                "examples": [
-                                    "617f0e29a76ec2a3aca1f202"
-                                ]
-                            }
-                        },
-                        "additionalProperties": true
-                    },
-                    "name": {
-                        "$id": "#/items/anyOf/0/properties/name",
-                        "type": "string",
-                        "title": "The name schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                            "Acadia"
-                        ]
-                    },
-                    "location": {
-                        "$id": "#/items/anyOf/0/properties/location",
-                        "type": "object",
-                        "title": "The location schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": {},
-                        "examples": [
-                            {
-                                "name": "Maine",
-                                "capital city": "Augusta",
-                                "total area (in square km)": 91646,
-                                "population": 1344212
-                            }
-                        ],
-                        "required": [
-                            "name",
-                            "capital city",
-                            "total area (in square km)",
-                            "population"
-                        ],
-                        "properties": {
-                            "name": {
-                                "$id": "#/items/anyOf/0/properties/location/properties/name",
-                                "type": "string",
-                                "title": "The name schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": "",
-                                "examples": [
-                                    "Maine"
-                                ]
-                            },
-                            "capital city": {
-                                "$id": "#/items/anyOf/0/properties/location/properties/capital%20city",
-                                "type": "string",
-                                "title": "The capital city schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": "",
-                                "examples": [
-                                    "Augusta"
-                                ]
-                            },
-                            "total area (in square km)": {
-                                "$id": "#/items/anyOf/0/properties/location/properties/total%20area%20%28in%20square%20km%29",
-                                "type": "integer",
-                                "title": "The total area (in square km) schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": 0,
-                                "examples": [
-                                    91646
-                                ]
-                            },
-                            "population": {
-                                "$id": "#/items/anyOf/0/properties/location/properties/population",
-                                "type": "integer",
-                                "title": "The population schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": 0,
-                                "examples": [
-                                    1344212
-                                ]
-                            }
-                        },
-                        "additionalProperties": true
-                    },
-                    "date established as park": {
-                        "$id": "#/items/anyOf/0/properties/date%20established%20as%20park",
-                        "type": "object",
-                        "title": "The date established as park schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": {},
-                        "examples": [
-                            {
-                                "$date": {
-                                    "$numberLong": "-1607299200000"
-                                }
-                            }
-                        ],
-                        "required": [
-                            "$date"
-                        ],
-                        "properties": {
-                            "$date": {
-                                "$id": "#/items/anyOf/0/properties/date%20established%20as%20park/properties/%24date",
-                                "type": "object",
-                                "title": "The $date schema",
-                                "description": "An explanation about the purpose of this instance.",
-                                "default": {},
-                                "examples": [
-                                    {
-                                        "$numberLong": "-1607299200000"
-                                    }
-                                ],
-                                "required": [
-                                    "$numberLong"
-                                ],
-                                "properties": {
-                                    "$numberLong": {
-                                        "$id": "#/items/anyOf/0/properties/date%20established%20as%20park/properties/%24date/properties/%24numberLong",
-                                        "type": "string",
-                                        "title": "The $numberLong schema",
-                                        "description": "An explanation about the purpose of this instance.",
-                                        "default": "",
-                                        "examples": [
-                                            "-1607299200000"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": true
-                            }
-                        },
-                        "additionalProperties": true
-                    },
-                    "area (in square km)": {
-                        "$id": "#/items/anyOf/0/properties/area%20%28in%20square%20km%29",
-                        "type": "number",
-                        "title": "The area (in square km) schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": 0.0,
-                        "examples": [
-                            198.6
-                        ]
-                    },
-                    "recreation visitors": {
-                        "$id": "#/items/anyOf/0/properties/recreation%20visitors",
-                        "type": "integer",
-                        "title": "The recreation visitors schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": 0,
-                        "examples": [
-                            2669034
-                        ]
-                    },
-                    "website": {
-                        "$id": "#/items/anyOf/0/properties/website",
-                        "type": "string",
-                        "title": "The website schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                            "https://www.nps.gov/acad/index.htm"
-                        ]
-                    },
-                    "fees (in $)": {
-                        "$id": "#/items/anyOf/0/properties/fees%20%28in%20%24%29",
-                        "type": "integer",
-                        "title": "The fees (in $) schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": 0,
-                        "examples": [
-                            15
-                        ]
-                    },
-                    "climate": {
-                        "$id": "#/items/anyOf/0/properties/climate",
-                        "type": "string",
-                        "title": "The climate schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                            "maritime"
-                        ]
-                    },
-                    "WiFi access": {
-                        "$id": "#/items/anyOf/0/properties/WiFi%20access",
-                        "type": "string",
-                        "title": "The WiFi access schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                            "none"
-                        ]
-                    },
-                    "cellular access": {
-                        "$id": "#/items/anyOf/0/properties/cellular%20access",
-                        "type": "string",
-                        "title": "The cellular access schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                            "very limited"
-                        ]
-                    },
-                    "average temperature (°F)": {
-                        "$id": "#/items/anyOf/0/properties/average%20temperature%20%28%C2%B0F%29",
-                        "type": "number",
-                        "title": "The average temperature (°F) schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": 0.0,
-                        "examples": [
-                            44.5
-                        ]
-                    },
-                    "picture": {
-                        "$id": "#/items/anyOf/0/properties/picture",
-                        "type": "string",
-                        "title": "The picture schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                            "https://upload.wikimedia.org/wikipedia/commons/9/93/Bass_Harbor_Head_Light_Station_2016.jpg"
-                        ]
-                    }
-                },
-                "additionalProperties": true
-            }
-        ]
-    }
+                  "Maine"
+                ]
+              },
+              "capital_city": {
+                "$id": "#/items/anyOf/0/properties/location/properties/capital_city",
+                "type": "string",
+                "title": "Capital City of location",
+                "description": "Capital citiy of location",
+                "default": "",
+                "examples": [
+                  "Augusta"
+                ]
+              },
+              "population": {
+                "$id": "#/items/anyOf/0/properties/location/properties/population",
+                "type": "integer",
+                "title": "Population of location",
+                "description": "Population of the location of the national park",
+                "default": 0,
+                "examples": [
+                  1344212
+                ]
+              },
+              "area": {
+                "$id": "#/items/anyOf/0/properties/location/properties/area",
+                "type": "integer",
+                "title": "Location area",
+                "description": "The area of location",
+                "default": 0,
+                "examples": [
+                  91646
+                ]
+              }
+            },
+            "additionalProperties": true
+          },
+          "date": {
+            "$id": "#/items/anyOf/0/properties/date",
+            "type": "string",
+            "title": "Date",
+            "description": "Date established as a park",
+            "default": "",
+            "examples": [
+              "1919-01-26T00:00:00.000Z"
+            ]
+          },
+          "area": {
+            "$id": "#/items/anyOf/0/properties/area",
+            "type": "number",
+            "title": "Area",
+            "description": "Area of the National Park in square km",
+            "default": 0.0,
+            "examples": [
+              198.6
+            ]
+          },
+          "visitors": {
+            "$id": "#/items/anyOf/0/properties/visitors",
+            "type": "integer",
+            "title": "Visitors",
+            "description": "Number of recreational visitors in 2020",
+            "default": 0,
+            "examples": [
+              2669034
+            ]
+          },
+          "website": {
+            "$id": "#/items/anyOf/0/properties/website",
+            "type": "string",
+            "title": "Website",
+            "description": "URL of the website of the national park",
+            "default": "",
+            "examples": [
+              "https://www.nps.gov/acad/index.htm"
+            ]
+          },
+          "fees": {
+            "$id": "#/items/anyOf/0/properties/fees",
+            "type": "integer",
+            "title": "Fees",
+            "description": "Fees for pedestrian in $",
+            "default": 0,
+            "examples": [
+              15
+            ]
+          },
+          "climate": {
+            "$id": "#/items/anyOf/0/properties/climate",
+            "type": "string",
+            "title": "Climate",
+            "description": "The climate in the park",
+            "default": "",
+            "examples": [
+              "maritime"
+            ]
+          },
+          "WiFi_access": {
+            "$id": "#/items/anyOf/0/properties/WiFi_access",
+            "type": "string",
+            "title": "WiFi_access",
+            "description": "Location where WiFi i available, if it is available",
+            "default": "",
+            "examples": [
+              "none"
+            ]
+          },
+          "cellular_access": {
+            "$id": "#/items/anyOf/0/properties/cellular_access",
+            "type": "string",
+            "title": "cellular_access",
+            "description": "if cellular access is available, and where",
+            "default": "",
+            "examples": [
+              "very limited"
+            ]
+          },
+          "average_temperature": {
+            "$id": "#/items/anyOf/0/properties/average_temperature",
+            "type": "number",
+            "title": "average_temperature",
+            "description": "average temperature messured by (average low temperature + average high temperature ) / 2",
+            "default": 0.0,
+            "examples": [
+              44.5
+            ]
+          },
+          "picture": {
+            "$id": "#/items/anyOf/0/properties/picture",
+            "type": "string",
+            "title": "picture",
+            "description": "url of the represantative picture of the park",
+            "default": "",
+            "examples": [
+              "https://upload.wikimedia.org/wikipedia/commons/9/93/Bass_Harbor_Head_Light_Station_2016.jpg"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    ]
+  }
 }
