@@ -57,7 +57,7 @@
         "$id": "#/items/anyOf/0",
         "type": "object",
         "title": "A form of the object 'parks'",
-        "description": "Information about a the national parks in USA WorldCup.",
+        "description": "Information about a the national parks in USA.",
         "default": {},
         "examples": [
           {
