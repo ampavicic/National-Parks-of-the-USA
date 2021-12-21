@@ -1,0 +1,215 @@
+{
+   "openapi": "3.0.3",
+   "info": {
+       "info": "API methods for national parks of USA",
+       "version": "1.0",
+       "contact": {
+           "name": "Ana Marija Pavičić"
+       },
+       "license": {
+           "name": "Creative Commons Attribution-ShareAlike License",
+           "url": "https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License"
+       }
+   },
+   "paths": {
+       "/parks/": {
+           "get": {
+               "summary": "Get all national parks from database",
+               "description": "Returns all national parks in database",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": " A successful response",
+                       "schema": {
+                           "$ref": "#/parks"
+                       }
+                   },
+                   "404": {
+                       "description": "Resource not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+           }
+        }
+       },
+       "/parks/{id}/": {
+           "get": {
+               "summary": "Use to request specified national park with id in the database",
+               "description": "Returns specified national park",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": "A successful response",
+                       "schema": {
+                           "$ref": "#/items/anyOf/0/properties"
+                       }
+                   },
+                   "404": {
+                       "description": "Not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+           }
+       },
+       "/parks/location/{location}": {
+           "get": {
+               "summary": "Use to request national park in the database with given location",
+               "description": "Returns national park with given location",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": " A successful response",
+                       "schema": {
+                           "$ref": "#/items/anyOf/0/properties"
+                       }
+                   },
+                   "404": {
+                       "description": "Not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+           },
+           "post": {
+            "summary": "Adds new park",
+            "description": "Adds a new park",
+            "produces": [
+                "application/json"
+            ],
+            "responses": {
+                "200": {
+                    "description": " A successful response",
+                    "schema": {
+                        "$ref": "#/parks"
+                    }
+                },
+                "404": {
+                    "description": "Resource not found"
+                },
+                "500": {
+                    "description": "Server error"
+                }
+            },
+            "put": {
+               "summary": "Updates park",
+               "description": "Updates park",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": " A successful response",
+                       "schema": {
+                           "$ref": "#/parks"
+                       }
+                   },
+                   "404": {
+                       "description": "Resource not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+            },
+            "delete": {
+               "summary": "Deletes park",
+               "description": "Deletes park",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": " A successful response",
+                       "schema": {
+                           "$ref": "#/parks"
+                       }
+                   },
+                   "404": {
+                       "description": "Resource not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+            }
+
+       },
+       "//parks/climate/:climate": {
+         "get": {
+             "summary": "Use to request national park in the database with given climate",
+             "description": "Returns national park with given climate",
+             "produces": [
+                 "application/json"
+             ],
+             "responses": {
+                 "200": {
+                     "description": " A successful response",
+                     "schema": {
+                         "$ref": "#/items/anyOf/0/properties"
+                     }
+                 },
+                 "404": {
+                     "description": "Not found"
+                 },
+                 "500": {
+                     "description": "Server error"
+                 }
+             }
+         }
+     },
+       "/parks/name/{location}": {
+           "get": {
+               "summary": "Use to request national park in the database with given name",
+               "description": "Returns all national parks with given name",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": "A successful response",
+                       "schema": {
+                           "$ref": "#/items/anyOf/0/properties"
+                       }
+                   },
+                   "404": {
+                       "description": " Not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+           }
+       },
+       "/openapi/": {
+           "get": {
+               "summary": "Get api specification",
+               "description": "Returns this file",
+               "produces": [
+                   "application/json"
+               ],
+               "responses": {
+                   "200": {
+                       "description": " A successful response"
+                   },
+                   "404": {
+                       "description": " Not found"
+                   },
+                   "500": {
+                       "description": "Server error"
+                   }
+               }
+           }
+       }
+   }
+}

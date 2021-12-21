@@ -4,7 +4,12 @@ GetData = async () => {
   return data;
 };
 
-async function postData(data = {}) {
+GetPrikaz = async () => {
+  data = await fetch("/parks/prikaz").then((r) => r.json());
+  return data;
+};
+
+/*async function postData(data = {}) {
   const dataLocatoin = await fetch("/location", {
     method: "POST",
     headers: {
@@ -14,10 +19,10 @@ async function postData(data = {}) {
   }).then((r) => r.json());
   
   return dataLocatoin.location;
-}
+}*/
 
 /* Formatting function for row details */
-function format(location) {
+/*function format(location) {
   const start =
     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
   const end = "</table>";
@@ -46,22 +51,25 @@ function format(location) {
     .join("");
   //console.log(direlements);
   return start + direlements + end;
-}
+}*/
 
 //ready function
 $(document).ready(async function () {
   const json = await GetData();
+  const prikaz = await GetPrikaz();
   //console.log(json);
   // text input to each footer cell
   $('#parks-table tfoot th').each(function () {
     var title = $(this).text();
     $(this).html('<input type="text" placeholder="Search ' + title + '" style="width: 60px;" />');
   });
-
+  console.log (prikaz)
+  console.log (json)
   var table = $("#parks-table").DataTable({
-    data: json,
+    data: prikaz,
+    pr : json,
     columns: [{
-        data: "name"
+      data: "name"
       },
       {
         data: "location_name"
@@ -85,7 +93,7 @@ $(document).ready(async function () {
         data: "visitors"
       },
       {
-        data: "fees"
+        pr: "fees"
       },
       {
         data: "climate"
@@ -100,7 +108,7 @@ $(document).ready(async function () {
         data: "average_temperature"
       },
       {
-         data: "picture"
+        data: "picture"
        },
       {
         className: "details-control",
@@ -117,7 +125,7 @@ $(document).ready(async function () {
         text: 'JSON',
         action: function (e, dt, button, config) {
           var names = dt.buttons.exportData().body.map(r => r[0]);
-          dataForExport = data.filter(r => names.includes(r.name));
+          dataForExport = json.filter(r => names.includes(r.name));
           console.log(dataForExport)
 
           $.fn.dataTable.fileSave(
@@ -131,16 +139,22 @@ $(document).ready(async function () {
         action: function (e, dt, button, config) {
           var names = dt.buttons.exportData().body.map(r => r[0]);
           dataForExport = data.filter(r => names.includes(r.name));
-          var header = dt.buttons.exportData().header.toString() + 'locationname,locationarea,locationpopulation'
+          var csv = '_id,name,location_name,location_population,location_area,location_capital_city,date,area,visitors,website,fees,climate,WiFi_access,cellular_access,average_temperature,picture'
+          for (let i = 0; i < dataForExport.lenght; i++) {
+
+          }
+          //var header = dt.buttons.exportData().header.toString() + 'locationname,locationarea,locationpopulation'
           dataForExportCSV = dataForExport.map(r => {
             var row = Object.keys(r).slice(0, -1).map(key => r[key].toString()).join(",");
-            var rowsForName = r.locations.map(element => {
+            /*var rowsForName = r.locations.map(element => {
               var locationRow = Object.keys(element).map(key => element[key].toString()).join(",");
               return row + ',' + locationRow;
-            }).join('\n');
-            return rowsForName;
+            }).join('\n');*/
+            return row;
           }).join('\n');
-          var finalCSV = header + '\n' + dataForExportCSV
+          var finalCSV = csv + '\n' + dataForExportCSV
+
+
           $.fn.dataTable.fileSave(
             new Blob([finalCSV]),
             'National Park.csv'

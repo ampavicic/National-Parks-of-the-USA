@@ -103,6 +103,7 @@ MongoClient.connect(url, async function(err, db) {
       const query = { _id: parkovi[i].location };
       const lok = dbo.collection("location")
       const cursor = await lok.find (query).toArray();
+      console.log (cursor)
       const location = {
          "name": cursor[0].name,
          "capital_city": cursor[0].capital_city,

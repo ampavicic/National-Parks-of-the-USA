@@ -22,9 +22,9 @@ module.exports = class Parkovi {
         }
         parkovi[i].location = location;
       }
-   
+      console.log (data)
       const data = JSON.stringify(parkovi)
-      return data;
+      return data; //ili data
     });
   };
 
@@ -42,4 +42,5 @@ getLocation = async function (year) {
    const data = JSON.stringify(parkovi)
    return data;
   });
+
 }}
