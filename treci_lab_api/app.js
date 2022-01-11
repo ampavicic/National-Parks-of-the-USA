@@ -5,6 +5,56 @@ const swaggerUi = require("swagger-ui-express");
 const mangoos = require('mongoose');
 const fs = require("fs");
 const { ObjectId } = require('mongodb');
+const path = require("path");
+
+
+app.set("views", path.join(__dirname, "view"));
+app.engine("html", require("ejs").renderFile);
+
+const { auth,claimEquals,
+   claimIncludes,
+   claimCheck, } = require('express-openid-connect');
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: 'a long, randomly-generated string stored in env',
+  baseURL: 'http://localhost:5000',
+  clientID: 'R4pv4w3Z3WHGUaj2aBFEr4yiUzOUqaA6',
+  issuerBaseURL: 'https://dev-djwba1dd.us.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+/*app.get('/', (req, res) => {
+  res.render(req.oidc.isAuthenticated() ? "logedin.html" : "homepage.html");
+});*/
+
+app.get('/profile', (req, res) => {
+   res.send(req.oidc.isAuthenticated() ? req.oidc.user : 'homepage.html');
+ });
+
+ function arrayToCSV (data) {
+   csv = data.map(row => Object.values(row));
+   csv.unshift(Object.keys(data[0]));
+   return csv.join('\n');
+}
+
+ app.get('/refresh', (req, res) => {
+   res.render(req.oidc.isAuthenticated() ? "index.html" : "homepage.html");
+ });
+
+app.get('/home', (req, res) => {
+   res.render("datatable.html");
+ });
+
+const { requiresAuth } = require('express-openid-connect');
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 app.use(express.json());
 
@@ -43,7 +93,7 @@ app.use("/api-data", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *      '500':
  *        description: Something went wrong
  */
- app.get("/parks", (req, res) => {
+ app.get("/park", (req, res) => {
    MongoClient.connect(url, async function(err, db) {
       if (err) throw err;
       console.log("Database connected!");
@@ -109,7 +159,7 @@ app.use("/api-data", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *      '404':
  *        description: Not found
  */
- app.get("/parks/:id", (req, res) => {
+ app.get("/park/:id", (req, res) => {
    MongoClient.connect(url, async function(err, db) {
       if (err) throw err;
       console.log("Database connected!");
@@ -170,7 +220,7 @@ app.use("/api-data", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  // Routes
 /**
  * @swagger
- * /parks/{location}:
+ * /parks/location/{location}:
  *  get:
  *    description: Use to request national park in the database with given location
  *    responses:
@@ -238,7 +288,7 @@ app.use("/api-data", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Routes
 /**
  * @swagger
- * /parks/{location}:
+ * /parks/name/{location}:
  *  get:
  *    description: Use to request national park in the database with given name
  *    responses:
@@ -448,9 +498,9 @@ app.put("/parks/:name", (req, res) => {
      var dbo = db.db("parkovi");
       
      const cursor = dbo.collection("parkovi").find({})
-     const idd = ObjectId(req.params.id);
-     console.log (idd)
-     const id = { name: req.params.name };
+     /*const idd = ObjectId(req.params.id);
+     console.log (idd)*/
+     const id = { "name": req.params.name };
      const parkovi = await cursor.toArray();
    let i;
      for (i = 0; i < parkovi.length; i++){
@@ -461,14 +511,14 @@ app.put("/parks/:name", (req, res) => {
      const staripark = parkovi [i]
 
      const c = await  dbo.collection("parkovi").find(id).toArray();
-     console.log (c[0])
-
      
      const novipark = req.body
+     console.log ("NOVI" + novipark.location)
      
-     const query = { name: req.body.location };
+     const query =  { name: req.body.location };
      const lok = dbo.collection("location")
      const curso = await lok.find (query).toArray();
+     console.log("location" + curso)
      
      novipark.location = curso[0]._id
 
@@ -589,6 +639,37 @@ app.delete("/parks/:id", (req, res) => {
      }
    });
 } 
+);
+
+app.get ("/openapi",  (req, res) => {
+   try {
+      const openapi = JSON.parse(fs.readFileSync("openapi.json"));
+      const Response = {
+         "status": "OK",
+         "message": "OpenaApi",
+         "response": {
+            "openapi": openapi,
+            "links": {
+                  "href": "openapi/1",
+                  "rel": "1",
+                  "type": "PUT"
+            }
+         }
+      }
+      res.setHeader("Content-Type", "application/json");
+      res.status(200);
+      res.json(Response);
+   }
+   catch {
+      res.setHeader("Content-Type", "application/json");
+      res.status(404);
+      res.json({
+         "status": "Not Found",
+         "message": ":(",
+         "reponse": null
+        })
+   }
+}
 );
 
 

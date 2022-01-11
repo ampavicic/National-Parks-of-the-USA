@@ -1,0 +1,14 @@
+#NPUSA {
+   color: rebeccapurple;
+}
+
+#dd {
+   color: rebeccapurple;
+}
+
+.button {
+   background-color: chartreuse;
+   box-sizing: content-box;
+   height: 50px;
+   margin: 10px;
+}
